@@ -29,10 +29,10 @@ export default function Nav() {
           {/* Wordmark */}
           <a
             href="/"
+            className="text-[12px] md:text-[14px]"
             style={{
               fontFamily: "'Barlow Condensed', Impact, sans-serif",
               fontWeight: 900,
-              fontSize: '14px',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               color: '#ffffff',

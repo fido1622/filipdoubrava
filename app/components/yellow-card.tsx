@@ -16,7 +16,13 @@ export default function YellowCard() {
       <div className="flex flex-col gap-2 md:gap-3">
 
         {/* Showreel */}
-        <div className="flex items-center gap-3 md:gap-5">
+        <a
+          href="https://youtu.be/F-mBCbS9A3M?si=WK7vNfdvEh4Ofqb8"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 md:gap-5"
+          style={{ textDecoration: "none", color: "#000" }}
+        >
           <div
             className="flex-shrink-0 flex items-center justify-center rounded-full"
             style={{ width: "36px", height: "36px", border: "2px solid rgba(0,0,0,0.8)" }}
@@ -34,19 +40,23 @@ export default function YellowCard() {
               FPV · 2 min
             </p>
           </div>
-        </div>
+        </a>
 
         <div style={{ height: "1px", background: "rgba(0,0,0,0.15)" }} />
 
         {/* Reference & projekty */}
-        <div className="flex items-center gap-3 md:gap-5">
-          <a href="#testimonials"
+        <a
+          href="/reference"
+          className="flex items-center gap-3 md:gap-5"
+          style={{ textDecoration: "none", color: "#000" }}
+        >
+          <div
             className="flex-shrink-0 flex items-center justify-center rounded-full"
-            style={{ width: "36px", height: "36px", border: "2px solid rgba(0,0,0,0.8)", textDecoration: "none", color: "#000" }}>
+            style={{ width: "36px", height: "36px", border: "2px solid rgba(0,0,0,0.8)" }}>
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M7 2l5 5-5 5" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </div>
           <div>
             <p className="uppercase font-black leading-none tracking-[-0.01em]"
               style={{ fontFamily: "'Barlow Condensed', 'Bebas Neue', Impact, sans-serif", fontSize: "clamp(26px, 2.6vw, 44px)", color: "#000" }}>
@@ -56,7 +66,7 @@ export default function YellowCard() {
               Vybrané práce · Co říkají klienti
             </p>
           </div>
-        </div>
+        </a>
 
         <div style={{ height: "1px", background: "rgba(0,0,0,0.15)" }} />
 
