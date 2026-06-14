@@ -56,6 +56,6 @@ export const projects: Project[] = [
     title: 'PRŮMYSL',
     description:
       'Přehledové i detailní záběry továren, skladů a technologií pro prezentace, nábor, bezpečnost i interní komunikaci.',
-    imageSrc: '/images/hero-woman-portrait.jpg',
+    imageSrc: '/images/category-prumysl.jpg',
   },
 ];

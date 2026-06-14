@@ -4,7 +4,7 @@ import CursorGlow from "./components/cursor-glow";
 import LoadingScreen from "./components/loading-screen";
 
 export const metadata: Metadata = {
-  title: "FD — Motion Graphics",
+  title: "FD - DRONE PILOT",
   description: "Stay Connected. Dark editorial bento-grid showcase.",
 };
 
