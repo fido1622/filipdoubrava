@@ -147,7 +147,7 @@ export default function CategoriesSection() {
         /* Headline: slightly smaller on mobile */
         .cat-headline {
           font-family: 'Bebas Neue', Anton, Impact, sans-serif;
-          font-size: clamp(52px, 14vw, 88px);
+          font-size: clamp(42px, 12vw, 80px);
           line-height: 0.88;
           letter-spacing: 0.01em;
           text-transform: uppercase;
@@ -209,6 +209,7 @@ export default function CategoriesSection() {
 
           .cat-headline {
             font-size: clamp(48px, 4vw, 66px);
+            line-height: 0.88;
             margin-top: 18px;
           }
 
@@ -268,7 +269,8 @@ export default function CategoriesSection() {
             </span>
 
             <h2 className="cat-headline">
-              KDE JSTE MOHLI<br />VIDĚT MOJE<br />ZÁBĚRY
+              <span className="md:hidden">KDE JSTE MOHLI<br />VIDĚT MOJE ZÁBĚRY</span>
+              <span className="hidden md:inline">KDE JSTE MOHLI<br />VIDĚT MOJE<br />ZÁBĚRY</span>
             </h2>
 
             <p

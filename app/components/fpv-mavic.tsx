@@ -87,13 +87,12 @@ export default function FpvMavic() {
             style={{
               fontFamily: "'Barlow Condensed', Impact, sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(40px, 5.5vw, 96px)',
+              fontSize: 'clamp(32px, 5.5vw, 96px)',
               lineHeight: 0.9,
               letterSpacing: '-0.02em',
               textTransform: 'uppercase',
               color: '#fff',
               margin: 0,
-              whiteSpace: 'nowrap',
             }}
           >
             RŮZNÉ TYPY ZÁBĚRŮ,{' '}
