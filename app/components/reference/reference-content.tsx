@@ -42,7 +42,7 @@ export default function ReferenceContent() {
 
         {/* YouTube link */}
         <a
-          href="https://youtube.com"
+          href="https://www.youtube.com/@filipdoubrava"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2"

@@ -8,17 +8,17 @@ const CAPABILITIES = [
     id: '01',
     title: 'DJI\nMavic',
     titleEn: 'Mavic',
-    output: 'Stabilizované vzdušné záběry, panoramata, odjezdy a nálety. Spolehlivý základ pro většinu projektů.',
-    detail: 'DJI Mavic 3 Pro · 4K/60fps · RAW · 3-osý gimbal',
-    tags: ['Mavic 3 Pro', '4K RAW', 'Stabilizace'],
+    output: 'Stabilizované a precizní záběry z dronu, panoramata, odjezdy a nálety. Spolehlivý základ pro většinu projektů.',
+    detail: 'DJI Mavic 4 Pro · 4K/60fps · 3-osý gimbal',
+    tags: ['Mavic 4 Pro', '4K ALL-I', 'Stabilizace'],
     available: true,
   },
   {
     id: '02',
     title: 'FPV\npackage',
     titleEn: 'FPV Package',
-    output: 'Dynamické průlety, akční sekvence a záběry z první osoby. Ideální pro sport, eventy a reklamu.',
-    detail: 'Custom FPV rig · GoPro / DJI O3 · 120fps slow-motion',
+    output: 'Dynamické průlety, akční sekvence a unikátní záběry. Ideální pro sport, eventy a reklamu.',
+    detail: 'Custom FPV rig · GoPro / DJI O4 Pro · 120fps slow-motion',
     tags: ['FPV', 'Cinematic FPV', '120fps'],
     available: true,
   },
@@ -26,7 +26,7 @@ const CAPABILITIES = [
     id: '03',
     title: 'Cinema dron:\nBlackmagic & Inspire 3',
     titleEn: 'Cinema Setup',
-    output: 'Těžší drony s kinematografickými kamerami pro produkce náročné na obraz.',
+    output: 'Těžší drony s filmovými kamerami pro produkce náročné na obraz.',
     detail: 'DJI Inspire 3 · Blackmagic Cinema Camera · ProRes / RAW',
     tags: ['Inspire 3', 'Blackmagic', 'ProRes RAW'],
     available: false,
@@ -36,11 +36,10 @@ const CAPABILITIES = [
     id: '04',
     title: 'Live\nbroadcast',
     titleEn: 'Live Broadcast',
-    output: 'Živý přenos vzdušného obrazu pro sport, eventy a televizní produkce.',
+    output: 'Živý přenos obrazu přímo z dronu pro sport, eventy a televizní produkce.',
     detail: 'SDI/HDMI live output · Low-latency feed · Koordinace s tech týmem',
     tags: ['Live SDI', 'Eventy', 'Broadcast'],
-    available: false,
-    note: 'Na poptávku',
+    available: true,
   },
   {
     id: '05',
@@ -99,7 +98,7 @@ export default function EquipmentSection() {
               paddingBottom: '6px',
             }}
           >
-            Od jednoduchého vzdušného záběru po komplexnější produkci —
+            Od jednoduchého leteckého záběru po komplexnější produkci —
             technika, zkušenosti a workflow podle potřeb konkrétního projektu.
           </p>
         </motion.div>

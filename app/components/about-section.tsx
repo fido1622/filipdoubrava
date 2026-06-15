@@ -174,7 +174,7 @@ export default function AboutSection() {
 
             {/* Bottom: inline credentials */}
             <div className="mt-12 flex flex-wrap gap-3">
-              {['DJI Certified', 'Licence A2', 'CAA Registered', 'FPV'].map(tag => (
+              {['Licence A2', 'Pojištění proti odpovědnosti', 'FPV'].map(tag => (
                 <span
                   key={tag}
                   style={{

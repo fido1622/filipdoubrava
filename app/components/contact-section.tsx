@@ -54,14 +54,32 @@ const inputBase: React.CSSProperties = {
 export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', type: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setError(false);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -134,7 +152,7 @@ export default function ContactSection() {
               </div>
 
               {/* Contact details */}
-              <div className="mt-14 flex flex-col gap-5">
+              <div className="mt-14 flex flex-col gap-4">
                 <div
                   style={{
                     width: '32px',
@@ -145,41 +163,42 @@ export default function ContactSection() {
                 />
 
                 <a
-                  href="mailto:filip@filipdoubrava.cz"
+                  href="mailto:doubrava@ceskasluzba.info"
                   style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '13px',
-                    color: 'rgba(255,255,255,0.55)',
+                    fontFamily: "'Barlow Condensed', Impact, sans-serif",
+                    fontWeight: 700,
+                    fontSize: 'clamp(22px, 2.6vw, 32px)',
+                    color: '#fff',
                     textDecoration: 'none',
                     letterSpacing: '0.01em',
                     transition: 'color 0.2s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#CBFF00')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#fff')}
                 >
-                  filip@filipdoubrava.cz
+                  doubrava@ceskasluzba.info
                 </a>
 
                 <a
-                  href="tel:+420000000000"
+                  href="tel:+420774486662"
                   style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '13px',
-                    color: 'rgba(255,255,255,0.35)',
+                    fontFamily: "'Barlow Condensed', Impact, sans-serif",
+                    fontWeight: 700,
+                    fontSize: 'clamp(22px, 2.6vw, 32px)',
+                    color: 'rgba(255,255,255,0.75)',
                     textDecoration: 'none',
                     letterSpacing: '0.01em',
                     transition: 'color 0.2s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#CBFF00')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
                 >
-                  +420 — — — — — —
+                  +420 774 486 662
                 </a>
 
-                <div className="flex flex-wrap gap-6 mt-2">
-                  <SocialLink href="#" label="Instagram" />
-                  <SocialLink href="#" label="Vimeo" />
-                  <SocialLink href="#" label="YouTube" />
+                <div className="flex flex-wrap gap-6 mt-3">
+                  <SocialLink href="https://www.instagram.com/filipdoubrava.cz/" label="Instagram" />
+                  <SocialLink href="https://www.youtube.com/@filipdoubrava" label="YouTube" />
                 </div>
               </div>
             </motion.div>
@@ -330,12 +349,14 @@ export default function ContactSection() {
                       {/* Submit */}
                       <button
                         type="submit"
+                        disabled={sending}
                         className="w-full flex items-center justify-center gap-3 rounded-[10px] transition-all duration-250"
                         style={{
                           padding: '16px 32px',
                           background: '#CBFF00',
                           border: 'none',
-                          cursor: 'pointer',
+                          cursor: sending ? 'default' : 'pointer',
+                          opacity: sending ? 0.6 : 1,
                           fontFamily: "'Barlow Condensed', Impact, sans-serif",
                           fontWeight: 800,
                           fontSize: '18px',
@@ -343,14 +364,31 @@ export default function ContactSection() {
                           textTransform: 'uppercase',
                           letterSpacing: '0.04em',
                         }}
-                        onMouseEnter={e => (e.currentTarget.style.background = '#d4ff1a')}
+                        onMouseEnter={e => { if (!sending) e.currentTarget.style.background = '#d4ff1a'; }}
                         onMouseLeave={e => (e.currentTarget.style.background = '#CBFF00')}
                       >
-                        BOOK A SHOOT
-                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                          <path d="M0 5h13M8 1.5l4.5 3.5L8 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        {sending ? 'ODESÍLÁM…' : 'BOOK A SHOOT'}
+                        {!sending && (
+                          <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                            <path d="M0 5h13M8 1.5l4.5 3.5L8 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
                       </button>
+
+                      {error && (
+                        <p
+                          style={{
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '11px',
+                            color: '#ff6b6b',
+                            textAlign: 'center',
+                            lineHeight: 1.5,
+                            marginTop: '4px',
+                          }}
+                        >
+                          Něco se nepovedlo. Zkuste to znovu nebo pište přímo na e-mail.
+                        </p>
+                      )}
 
                       <p
                         style={{
