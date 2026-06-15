@@ -12,7 +12,7 @@ const PROJECT_TYPE_LABELS: Record<string, string> = {
 };
 
 export async function POST(request: Request) {
-  const { name, email, type, message } = await request.json();
+  const { name, email, phone, type, message } = await request.json();
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -27,6 +27,7 @@ export async function POST(request: Request) {
       text: [
         `Jméno: ${name}`,
         `E-mail: ${email}`,
+        `Telefon: ${phone || '—'}`,
         `Typ projektu: ${PROJECT_TYPE_LABELS[type] ?? '—'}`,
         '',
         'Zpráva:',

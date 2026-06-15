@@ -52,7 +52,7 @@ const inputBase: React.CSSProperties = {
 };
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', type: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', type: '', message: '' });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
@@ -299,6 +299,18 @@ export default function ContactSection() {
                           />
                         </div>
                       </div>
+
+                      {/* Phone (optional) */}
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Telefon (nepovinné)"
+                        value={form.phone}
+                        onChange={handleChange}
+                        style={inputBase}
+                        onFocus={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)')}
+                        onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}
+                      />
 
                       {/* Project type */}
                       <select
