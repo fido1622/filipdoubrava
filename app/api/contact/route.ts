@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: 'Web Form <onboarding@resend.dev>',
+      from: 'Web Form <web@filipdoubrava.cz>',
       to: 'doubrava@ceskasluzba.info',
       replyTo: email,
       subject: `Nová poptávka — ${name}`,
